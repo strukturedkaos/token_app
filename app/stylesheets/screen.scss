@@ -1,0 +1,157 @@
+// This import applies a global reset to any page that imports this stylesheet.
+@import "blueprint/reset";
+
+// To configure blueprint, edit the partials/base.sass file.
+@import "partials/base";
+
+// Import all the default blueprint modules so that we can access their mixins.
+@import "blueprint";
+
+// Import the non-default scaffolding module.
+@import "blueprint/scaffolding";
+
+// Import formtastic module
+//@import "formtastic/formtastic_base";
+
+// Compass Clearfix
+@import "compass/utilities/general/clearfix";
+
+@import "compass/css3";
+
+// To generate css equivalent to the blueprint css but with your
+// configuration applied, uncomment:
+// @include blueprint
+
+@mixin rounded-left {
+  border-top-left-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-webkit-border-top-left-radius: 5px;
+
+  border-bottom-left-radius: 5px;
+  -moz-border-radius-bottomleft: 5px;
+  -webkit-border-bottom-left-radius: 5px;
+}
+
+@mixin rounded {
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+
+@mixin shadow {
+  -moz-box-shadow: 0 0 5px #EEE;
+  -webkit-box-shadow: 0 0 5px #EEE;
+  box-shadow: 0 0 5px #EEE;
+}
+
+
+
+// If you are doing a lot of stylesheet concatenation, it is suggested
+// that you scope your blueprint styles, so that you can better control
+// what pages use blueprint when stylesheets are concatenated together.
+body.bp {
+  @include blueprint-typography(true);
+  @include blueprint-utilities;
+  @include blueprint-debug;
+  @include blueprint-interaction;
+  // Remove the scaffolding when you're ready to start doing visual design.
+  // Or leave it in if you're happy with how blueprint looks out-of-the-box
+}
+
+form.bp {
+  @include blueprint-form;
+  // You'll probably want to remove the scaffolding once you start styling your site.
+  @include blueprint-scaffolding; }
+
+// Page layout can be done using mixins applied to your semantic classes and IDs:
+body.two-col {
+  @include background(linear-gradient(top left, #b2b2b2, #EAEAEA),
+                      radial-gradient(#c00, #fff 700px));
+  #container {
+    text-align: left;
+    @include container; }
+  #header, #footer {
+    @include column($blueprint-grid-columns); }
+    
+  header {
+  //  background-color: #efe;
+  //  @include column($blueprint-grid-columns); 
+  //  border-bottom: 2px solid #F0F0F0;
+    $header-columns: floor($blueprint-grid-columns);  
+    @include column($header-columns);
+    min-height:120px;
+    padding: 10px 0 12px 0;
+    margin: 30px 0px 0px 0px;
+/*    background: #FAFAFA;*/
+/*    border-bottom: 2px solid #F0F0F0;*/
+  }
+  
+  nav {
+  
+  // 16 - 1 = 15 columns
+  $nav-columns: ceil(18);
+  // true means it's the last column in the row
+  @include column($nav-columns, true);
+
+  // 5px rounded border
+  @include rounded;
+  
+	font-size: 1.1em;
+	height: 40px;
+	line-height: 30px;
+	margin: 1em auto 1em auto;
+	padding: 0;
+	text-align: center;    
+  $navbar-width: 700px;
+  $items: 7;
+  border: 4px solid #FFF;
+  background: #ECECEC;
+  color: #888;
+  @include clearfix;
+  //box-shadow-default 
+  @include single-box-shadow;
+
+  // sets the background color of the navbar to black
+  // background: #000305;
+  // $navbar-color: #000;
+
+  // width: $navbar-width;
+  // border-bottom: 2px solid $navbar-color;
+  
+  a:link, a:visited {
+    color: #888;
+    display: inline-block;
+    height: 30px;
+    padding: 5px 1.5em;
+    text-decoration: none;
+  }
+  
+  a:hover,  a:active, .active a:link, .active a:visited {
+	background: #C74451;
+	color: #fff;
+	text-shadow: none !important;
+  }
+  
+  ul { list-style-type: none; margin: 0 auto; width: $navbar-width; }
+
+  li {
+    float: left;
+    width: $navbar_width/$items;  
+    
+    &:first-child a { @include rounded-left; }
+    }
+  }
+  #sidebar {
+    // One third of the grid columns, rounding down. With 24 cols, this is 8.
+    $sidebar-columns: floor($blueprint-grid-columns / 3);
+    @include column($sidebar-columns); }
+  #content {
+    // Two thirds of the grid columns, rounding up.
+    // With 24 cols, this is 16.
+    @include background(#fff);
+    @include rounded;
+    @include shadow;
+    padding: 10px 0 10px 20px;
+    $content-columns: ceil(2 * $blueprint-grid-columns / 3);
+    // true means it's the last column in the row
+    @include column($content-columns, true); } }
