@@ -21,11 +21,18 @@
     %br/
     = f.password_field :current_password
     
-  %p
-    = link_to "Generate Token", token_authentications_path(:user_id => current_user.id), :method => :post, :confirm => "Are you sure?"
-    = link_to "Delete Token", token_authentication_path(current_user), :method => :delete, :confirm => "Are you sure?"
-
-        
+    %p
+      = link_to "Generate Token", token_authentications_path(:user_id => current_user.id), :method => :post, :confirm => "Are you sure?"
+      = link_to "Delete Token", token_authentication_path(current_user), :method => :delete, :confirm => "Are you sure?"
+    - if resource.authentication_token
+      %p 
+        Authentication token:
+        %br/
+        =resource.authentication_token
+      %p
+        You can use this url to login
+        %br/
+        = link_to "http://localhost:3000#{root_path(:auth_token => resource.authentication_token)}", root_path(:auth_token => resource.authentication_token)
   %p= f.submit "Update"
 %h3 Cancel my account
 %p

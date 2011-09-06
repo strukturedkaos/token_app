@@ -10,19 +10,20 @@
     = csrf_meta_tag
   %body.bp.two-col
     #container
-      %header
+      %header       
         %nav
           %ul.nav-menu
             - if user_signed_in?
+              %li= link_to "Home", home_index_path
               %li= link_to "Account", edit_user_registration_path(@user)
-              %li= link_to "Logout", destroy_user_session_path
+              %li= link_to "Logout", destroy_user_session_path, :method => :delete
             - else
               %li= link_to "Signup", new_user_registration_path
               %li= link_to "Login", new_user_session_path
-      %section
+      .flash
         - flash.each do |key, value|
-          %div{:class => "flash #{key}"}= value
-        #content
-          = yield
+          %div{:class => "flash #{key}"}= value                     
+      #content    
+        = yield
       %footer
     = debug(params) if Rails.env.development?

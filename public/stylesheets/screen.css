@@ -522,12 +522,27 @@ body.two-col #header, body.two-col #footer {
   overflow-x: hidden;
 }
 /* line 76, ../../app/stylesheets/screen.scss */
+body.two-col .flash {
+  display: inline;
+  float: left;
+  margin-right: 0;
+  width: 710px;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  float: left;
+  margin: 0px 0px 40px 0px;
+}
+/* line 147, ../../../../.rvm/gems/ruby-1.9.2-p290@global/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
+* html body.two-col .flash {
+  overflow-x: hidden;
+}
+/* line 86, ../../app/stylesheets/screen.scss */
 body.two-col header {
   display: inline;
   float: left;
   margin-right: 10px;
   width: 950px;
-  min-height: 120px;
   padding: 10px 0 12px 0;
   margin: 30px 0px 0px 0px;
   /*    background: #FAFAFA;*/
@@ -537,7 +552,7 @@ body.two-col header {
 * html body.two-col header {
   overflow-x: hidden;
 }
-/* line 89, ../../app/stylesheets/screen.scss */
+/* line 99, ../../app/stylesheets/screen.scss */
 body.two-col nav {
   display: inline;
   float: left;
@@ -566,7 +581,7 @@ body.two-col nav {
 * html body.two-col nav {
   overflow-x: hidden;
 }
-/* line 121, ../../app/stylesheets/screen.scss */
+/* line 130, ../../app/stylesheets/screen.scss */
 body.two-col nav a:link, body.two-col nav a:visited {
   color: #888;
   display: inline-block;
@@ -574,24 +589,24 @@ body.two-col nav a:link, body.two-col nav a:visited {
   padding: 5px 1.5em;
   text-decoration: none;
 }
-/* line 129, ../../app/stylesheets/screen.scss */
+/* line 138, ../../app/stylesheets/screen.scss */
 body.two-col nav a:hover, body.two-col nav a:active, body.two-col nav .active a:link, body.two-col nav .active a:visited {
   background: #C74451;
   color: #fff;
   text-shadow: none !important;
 }
-/* line 135, ../../app/stylesheets/screen.scss */
+/* line 144, ../../app/stylesheets/screen.scss */
 body.two-col nav ul {
   list-style-type: none;
   margin: 0 auto;
   width: 700px;
 }
-/* line 137, ../../app/stylesheets/screen.scss */
+/* line 146, ../../app/stylesheets/screen.scss */
 body.two-col nav li {
   float: left;
   width: 100px;
 }
-/* line 141, ../../app/stylesheets/screen.scss */
+/* line 150, ../../app/stylesheets/screen.scss */
 body.two-col nav li:first-child a {
   border-top-left-radius: 5px;
   -moz-border-radius-topleft: 5px;
@@ -600,7 +615,7 @@ body.two-col nav li:first-child a {
   -moz-border-radius-bottomleft: 5px;
   -webkit-border-bottom-left-radius: 5px;
 }
-/* line 144, ../../app/stylesheets/screen.scss */
+/* line 153, ../../app/stylesheets/screen.scss */
 body.two-col #sidebar {
   display: inline;
   float: left;
@@ -611,7 +626,7 @@ body.two-col #sidebar {
 * html body.two-col #sidebar {
   overflow-x: hidden;
 }
-/* line 148, ../../app/stylesheets/screen.scss */
+/* line 157, ../../app/stylesheets/screen.scss */
 body.two-col #content {
   background: white;
   border-radius: 5px;
@@ -624,7 +639,7 @@ body.two-col #content {
   display: inline;
   float: left;
   margin-right: 0;
-  width: 630px;
+  width: 710px;
 }
 /* line 147, ../../../../.rvm/gems/ruby-1.9.2-p290@global/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
 * html body.two-col #content {
