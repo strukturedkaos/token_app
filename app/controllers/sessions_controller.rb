@@ -19,13 +19,13 @@ class SessionsController < Devise::SessionsController
       format.html { super }
       format.xml {
         warden.authenticate!(:scope => resource_name, :recall => "#{controller_path}#new")
-        current_user.empty_authentication_token!
+        current_user.authentication_token = nil
         render :xml => {}.to_xml, :status => :ok
       }
  
       format.json {
         warden.authenticate!(:scope => resource_name, :recall => "#{controller_path}#new")
-        current_user.empty_authentication_token!
+        current_user.authentication_token = nil
         render :json => {}.to_json, :status => :ok
       }   
     end    
